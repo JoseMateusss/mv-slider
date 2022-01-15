@@ -28,5 +28,6 @@ along with MV Slider. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
 
 if( ! defined( 'ABSPATH') ){
+    die("O plugin não pode ser acessado desta forma!");
     exit;
 }
