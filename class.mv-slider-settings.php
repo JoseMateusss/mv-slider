@@ -18,7 +18,7 @@ if( !class_exists( 'MV_Slider_Settings' ) ){
 
 		public function admin_init(){
 
-			register_setting( 'mv_slider_group', 'mv_slider_options' );
+			register_setting( 'mv_slider_group', 'mv_slider_options', array( $this, 'mv_slider_validate' ) );
 			
 			add_settings_section(
 				'mv_slider_main_section',
@@ -103,6 +103,15 @@ if( !class_exists( 'MV_Slider_Settings' ) ){
             </select>
             <?php
         }
+
+		public function mv_slider_validate( $input ){
+			$new_input = array(); 
+			foreach( $input as $key => $value ){
+				$new_input[$key] = sanitize_text_field($value);
+			}
+
+			return $new_input;
+		}
 
 
 	}
